@@ -9,11 +9,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
         body { background-color: #08080c; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-        .mod-card { background: linear-gradient(145deg, #111118, #0a0a0f); border: 2px solid #00f2ff; border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 0 30px rgba(0, 242, 255, 0.2); width: 90%; max-width: 450px; }
+        .mod-card { background: linear-gradient(145deg, #111118, #0a0a0f); border: 2px solid #00f2ff; border-radius: 20px; padding: 40px; text-align: center; box-shadow: 0 0 30px rgba(0, 242, 255, 0.2); width: 90%; max-width: 450px; }
         .mod-icon { font-size: 50px; color: #00f2ff; margin-bottom: 20px; text-shadow: 0 0 15px #00f2ff; }
-        .btn-mod { background: #00f2ff; color: #000; font-weight: 800; border: none; padding: 15px; border-radius: 12px; width: 100%; transition: 0.3s; text-decoration: none; display: block; margin-bottom: 15px; }
-        /* TOMBOL PINDAH KE AI HOSHINO */
-        .btn-hoshino { background: #ff4081; color: white; font-weight: 800; border: none; padding: 15px; border-radius: 12px; width: 100%; transition: 0.3s; text-decoration: none; display: block; }
+        .btn-mod { background: #00f2ff; color: #000; font-weight: 800; border: none; padding: 15px; border-radius: 12px; width: 100%; transition: 0.3s; }
+        .btn-mod:hover { transform: scale(1.05); box-shadow: 0 0 20px #00f2ff; }
     </style>
 </head>
 <body>
@@ -21,19 +20,14 @@
         <i class="fas fa-robot mod-icon"></i>
         <h2 class="fw-bold">MODDD CENTER</h2>
         <p class="text-secondary small mb-4">Pusat Aplikasi Mod & Tools Editor Hiro Wanggy</p>
-        
         <div class="mb-4 text-start">
             <div class="p-3 mb-2 rounded border border-secondary">
                 <small class="text-info d-block">Terbaru:</small>
                 <span>Alight Motion Ultra Pro v5.0</span>
             </div>
         </div>
-
-        <a href="https://wa.me/6288983338513" class="btn-mod">ORDER MOD VIA WA</a>
-        
-        <a href="https://zerfizarfi-debug.github.io/Generator-Gmail-Login-Am/" class="btn-hoshino">
-            <i class="fas fa-magic"></i> BUKA GENERATOR LOGIN
-        </a>
+        <button class="btn-mod" onclick="location.href='https://wa.me/6288983338513'">ORDER MOD VIA WA</button>
+        <a href="https://zerfizarfi-debug.github.io/Generator-Gmail-Login-Am/" class="d-block mt-3 text-secondary small" style="text-decoration:none">Buka Generator Email Login</a>
     </div>
 </body>
 </html>
