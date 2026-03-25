@@ -12,10 +12,11 @@
         body { background-color: var(--dark-bg); color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
         .gen-card { background: rgba(255, 255, 255, 0.05); border: 2px solid var(--ai-pink); border-radius: 25px; padding: 30px; backdrop-filter: blur(15px); width: 90%; max-width: 400px; text-align: center; box-shadow: 0 0 30px rgba(255, 64, 129, 0.2); }
         .profile-img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--ai-pink); margin-bottom: 15px; object-fit: cover; }
-        .email-display { background: #16161a; padding: 15px; border-radius: 12px; font-weight: bold; color: #00ff88; border: 1px solid #333; margin: 20px 0; word-break: break-all; min-height: 55px; }
-        .btn-gen { background: linear-gradient(45deg, #ff4081, #9c27b0); border: none; color: white; font-weight: 800; width: 100%; padding: 12px; border-radius: 12px; margin-bottom: 10px; cursor: pointer; }
-        .btn-check { background: #25d366; border: none; color: white; font-weight: 800; width: 100%; padding: 12px; border-radius: 12px; display: none; text-decoration: none; transition: 0.3s; }
-        .btn-check:hover { background: #1eb954; transform: scale(1.02); }
+        .email-display { background: #16161a; padding: 15px; border-radius: 12px; font-weight: bold; color: #00ff88; border: 1px solid #333; margin: 20px 0; word-break: break-all; min-height: 55px; font-size: 1.1rem; }
+        .btn-gen { background: linear-gradient(45deg, #ff4081, #9c27b0); border: none; color: white; font-weight: 800; width: 100%; padding: 14px; border-radius: 12px; margin-bottom: 10px; cursor: pointer; }
+        .btn-copy { background: #333; color: white; border: none; width: 100%; padding: 10px; border-radius: 12px; margin-bottom: 15px; font-weight: 600; }
+        /* Tombol Cek Inbox - Awalnya Tersembunyi */
+        .btn-check { background: #25d366; color: white; font-weight: 800; width: 100%; padding: 14px; border-radius: 12px; display: none; text-decoration: none; box-shadow: 0 0 15px rgba(37, 211, 102, 0.4); }
     </style>
 </head>
 <body>
@@ -26,14 +27,21 @@
         
         <div class="email-display" id="res">KLIK GENERATE...</div>
         
-        <button class="btn-gen" onclick="gen()">GENERATE EMAIL</button>
-        <button class="btn btn-outline-light btn-sm w-100 mb-2" onclick="copy()">Salin Email</button>
+        <button class="btn-gen" onclick="gen()">
+            <i class="fas fa-bolt"></i> GENERATE EMAIL
+        </button>
+        
+        <button class="btn-copy" onclick="copy()">
+            <i class="fas fa-copy"></i> Salin Email
+        </button>
         
         <a href="#" id="checkLink" target="_blank" class="btn-check">
             <i class="fas fa-envelope-open"></i> BUKA EMAIL VERIFIKASI
         </a>
         
-        <p class="mt-3 small text-muted">Setelah klik "Masuk" di AM, balik ke sini dan klik tombol hijau di atas.</p>
+        <p id="hint" class="mt-3 small text-muted" style="display:none;">
+            Klik tombol hijau di atas buat ambil link login dari Alight Creative!
+        </p>
     </div>
 
     <script>
@@ -43,16 +51,19 @@
             const fullEmail = n + '@' + d;
             document.getElementById('res').innerText = fullEmail;
             
-            // Link ini otomatis ngebuka inbox email tersebut
+            // Link inbox otomatis
             const inboxLink = "https://generator.email/" + fullEmail;
             const btnCheck = document.getElementById('checkLink');
             btnCheck.href = inboxLink;
-            btnCheck.style.display = "block";
+            
+            // PERINTAH BUAT MUNCULIN TOMBOL
+            btnCheck.style.display = "block"; 
+            document.getElementById('hint').style.display = "block";
         }
         function copy() {
             const t = document.getElementById('res').innerText;
-            if(t.includes('KLIK')) return;
-            navigator.clipboard.writeText(t).then(() => alert('Email berhasil disalin!'));
+            if(t.includes('KLIK')) return alert('Generate dulu, Hiro!');
+            navigator.clipboard.writeText(t).then(() => alert('Email tersalin! Paste ke Alight Motion ya.'));
         }
     </script>
 </body>
