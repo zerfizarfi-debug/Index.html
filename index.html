@@ -10,7 +10,6 @@
         .gen-card { border: 2px solid #ff4081; border-radius: 25px; padding: 30px; width: 90%; max-width: 400px; text-align: center; }
         .email-display { background: #16161a; padding: 15px; border-radius: 12px; font-weight: bold; color: #00ff88; margin: 20px 0; border: 1px solid #333; }
         .btn-gen { background: linear-gradient(45deg, #ff4081, #9c27b0); border: none; color: white; font-weight: 800; width: 100%; padding: 12px; border-radius: 12px; margin-bottom: 10px; }
-        /* TOMBOL INI DIBUAT TERLIHAT TERUS TAPI DISABLE SEBELUM GENERATE */
         .btn-check { background: #25d366; color: white; font-weight: 800; width: 100%; padding: 12px; border-radius: 12px; display: block; text-decoration: none; margin-top: 15px; opacity: 0.5; pointer-events: none; }
     </style>
 </head>
@@ -20,19 +19,14 @@
         <div class="email-display" id="res">GENERATE DULU...</div>
         <button class="btn-gen" onclick="generate()">GENERATE EMAIL</button>
         <button class="btn btn-outline-light btn-sm w-100" onclick="copy()">Salin Email</button>
-        
         <a href="#" id="tombolCek" target="_blank" class="btn-check">BUKA EMAIL VERIFIKASI</a>
     </div>
-
     <script>
         function generate() {
             const emailFix = 'nara' + Math.floor(Math.random() * 900000 + 100000) + '@egc89vmz.sbs';
             document.getElementById('res').innerText = emailFix;
-            
             const btn = document.getElementById('tombolCek');
             btn.href = "https://generator.email/" + emailFix;
-            
-            // AKTIFKAN TOMBOL SETELAH GENERATE
             btn.style.opacity = "1";
             btn.style.pointerEvents = "auto";
         }
